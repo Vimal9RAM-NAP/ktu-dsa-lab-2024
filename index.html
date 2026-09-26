@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTU DSA Lab - PCCSL307</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Header -->
+    <header>
+        <h1>KTU DSA Lab Repository (2024 Scheme)</h1>
+        <p>Semester 3 Internal Practical Exam Preparation</p>
+    </header>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h3>Topics</h3>
+            <button class="nav-btn active" onclick="loadTopic(0)">1. Binary Search</button>
+            <button class="nav-btn" onclick="loadTopic(1)">2. Polynomial Addition</button>
+            <button class="nav-btn" onclick="loadTopic(2)">3. Circular Queue</button>
+            <button class="nav-btn" onclick="loadTopic(3)">4. Doubly Linked List</button>
+        </aside>
+
+        <!-- Main Workspace split into 2 halves -->
+        <main class="content-grid">
+            
+            <!-- LEFT HALF: Code & Output -->
+            <section class="panel left-panel">
+                <div class="panel-header">
+                    <h2>C Implementation</h2>
+                </div>
+                <pre><code id="code-block">// Program code will load here...</code></pre>
+
+                <div class="panel-header">
+                    <h2>Sample Output</h2>
+                </div>
+                <div class="terminal-box" id="output-block">
+                    <!-- Output will load here... -->
+                </div>
+            </section>
+
+            <!-- RIGHT HALF: Aim, Algorithm, Result, Viva -->
+            <section class="panel right-panel">
+                <h2 id="topic-title">Topic Title</h2>
+                
+                <div class="card">
+                    <h3>Aim</h3>
+                    <p id="topic-aim">Aim details...</p>
+                </div>
+
+                <div class="card">
+                    <h3>Algorithm</h3>
+                    <ol id="topic-algorithm">
+                        <!-- Algorithm steps -->
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>Result</h3>
+                    <p id="topic-result">Program compiled and executed successfully.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Viva Questions</h3>
+                    <div id="viva-container">
+                        <!-- Viva Q&A -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
