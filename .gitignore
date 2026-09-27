@@ -1,0 +1,15 @@
+# Executables
+binary_search
+poly_add
+circular_queue
+dll_insertion
+*.out
+*.o
+*.exe
+
+# IDE / Editor settings
+.vscode/
+
+# OS metadata
+.DS_Store
+Thumbs.db
