@@ -70,7 +70,23 @@ const topics = [
             { q: "What is an advantage of a DLL over a SLL?", a: "It supports bi-directional traversal (forward and backward) and easier deletion of a node if its pointer is given." },
             { q: "What extra memory overhead does DLL introduce?", a: "One additional pointer per node (`prev`) to store the address of the preceding node." }
         ]
-    }
+    },
+    {
+    title: "Linear Queue using Array",
+    file: "programs/queue.c",
+    aim: "To implement a Linear Queue using an array with Enqueue, Dequeue, and Display operations.",
+    algorithm: [
+        "Initialize FRONT = -1 and REAR = -1.",
+        "Enqueue(val): If REAR == MAX - 1, print Queue Overflow. If FRONT == -1 set FRONT = 0. Increment REAR = REAR + 1 and set Queue[REAR] = val.",
+        "Dequeue(): If FRONT == -1 or FRONT > REAR, print Queue Underflow. Print deleted element Queue[FRONT] and increment FRONT = FRONT + 1. If FRONT > REAR, reset FRONT = REAR = -1.",
+        "Display(): Loop from i = FRONT to REAR and print Queue[i]."
+    ],
+    output: "Inserted 10\nInserted 20\nInserted 30\nQueue contents: 10 20 30\nDeleted 10\nQueue contents: 20 30\nInserted 40\nInserted 50\nQueue Overflow!\nQueue contents: 20 30 40 50",
+    viva: [
+        { q: "What principle does a Queue follow?", a: "FIFO (First In, First Out)." },
+        { q: "What is the primary drawback of a Linear Queue using an array?", a: "Memory utilization inefficiency: once elements are dequeued, the space before FRONT cannot be reused even if REAR reaches MAX - 1." }
+    ]
+}
 ];
 
 async function loadTopic(index) {
