@@ -86,6 +86,23 @@ const topics = [
         { q: "What principle does a Queue follow?", a: "FIFO (First In, First Out)." },
         { q: "What is the primary drawback of a Linear Queue using an array?", a: "Memory utilization inefficiency: once elements are dequeued, the space before FRONT cannot be reused even if REAR reaches MAX - 1." }
     ]
+},
+{
+    title: "Double Ended Queue (Deque)",
+    file: "programs/deque.c",
+    aim: "To implement a Double Ended Queue using a circular array allowing insertion and deletion at both front and rear ends.",
+    algorithm: [
+        "Initialize FRONT = -1 and REAR = -1.",
+        "Insert Front(val): Check overflow. If empty set FRONT = REAR = 0; else if FRONT == 0 set FRONT = MAX - 1; else decrement FRONT. Insert item at Queue[FRONT].",
+        "Insert Rear(val): Check overflow. If empty set FRONT = REAR = 0; else if REAR == MAX - 1 set REAR = 0; else increment REAR. Insert item at Queue[REAR].",
+        "Delete Front(): Check underflow. Delete Queue[FRONT]. If FRONT == REAR reset both to -1; else if FRONT == MAX - 1 set FRONT = 0; else increment FRONT.",
+        "Delete Rear(): Check underflow. Delete Queue[REAR]. If FRONT == REAR reset both to -1; else if REAR == 0 set REAR = MAX - 1; else decrement REAR."
+    ],
+    output: "Inserted 10 at Rear\nInserted 20 at Rear\nInserted 5 at Front\nDeque contents: 5 10 20\nDeleted 20 from Rear\nDeque contents: 5 10\nDeleted 5 from Front\nDeque contents: 10",
+    viva: [
+        { q: "What are the two restricted types of Deque?", a: "Input-Restricted Deque (insertion at one end, deletion at both) and Output-Restricted Deque (deletion at one end, insertion at both)." },
+        { q: "Can a Deque act as both a Stack and a Queue?", a: "Yes, by restricting operations to one end it acts as a Stack (LIFO), and using opposite ends it acts as a Queue (FIFO)." }
+    ]
 }
 ];
 
