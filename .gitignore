@@ -4,6 +4,7 @@ poly_add
 circular_queue
 dll_insertion
 queue
+deque
 *.out
 *.o
 *.exe
