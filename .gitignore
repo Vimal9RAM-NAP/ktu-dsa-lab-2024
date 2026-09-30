@@ -5,6 +5,7 @@ circular_queue
 dll_insertion
 queue
 deque
+linear_search
 *.out
 *.o
 *.exe
