@@ -103,6 +103,25 @@ const topics = [
         { q: "What are the two restricted types of Deque?", a: "Input-Restricted Deque (insertion at one end, deletion at both) and Output-Restricted Deque (deletion at one end, insertion at both)." },
         { q: "Can a Deque act as both a Stack and a Queue?", a: "Yes, by restricting operations to one end it acts as a Stack (LIFO), and using opposite ends it acts as a Queue (FIFO)." }
     ]
+},
+{
+    title: "Linear Search",
+    file: "programs/linear_search.c",
+    aim: "To search for a given target element sequentially in an array and display its index position.",
+    algorithm: [
+        "Read the size of the array N and N elements.",
+        "Read the KEY element to search.",
+        "Set found = 0.",
+        "Loop i from 0 to N - 1:",
+        "  a. If A[i] == KEY, print success message with index i, set found = 1, and break loop.",
+        "If found == 0, print that element was not found in array."
+    ],
+    output: "Enter number of elements: 5\nEnter 5 elements:\n45 12 89 23 67\nEnter element to search: 23\nElement found at index 3 (Position 4).",
+    viva: [
+        { q: "Does Linear Search require elements to be sorted?", a: "No, Linear Search works on both unsorted and sorted arrays." },
+        { q: "What is the time complexity of Linear Search?", a: "Best Case: O(1) when key is at index 0. Worst and Average Case: O(n)." },
+        { q: "When is Linear Search preferred over Binary Search?", a: "For small datasets or when the array is unsorted and sorting overhead is unnecessary." }
+    ]
 }
 ];
 
