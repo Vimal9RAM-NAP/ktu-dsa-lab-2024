@@ -139,6 +139,26 @@ const topics = [
         { q: "What is the time complexity of inserting a node at the beginning vs at the end?", a: "Insertion at beginning: O(1). Insertion at end: O(n) without a tail pointer, or O(1) if a tail pointer is maintained." },
         { q: "What happens if malloc fails during node creation?", a: "It returns NULL, indicating memory allocation overflow/failure." }
     ]
+},
+{
+    title: "Sparse Matrix Representation",
+    file: "programs/sparse_matrix.c",
+    aim: "To read a standard matrix and convert it into its efficient 3-tuple (Row, Column, Value) sparse matrix representation using structures.",
+    algorithm: [
+        "Read dimensions R and C, followed by matrix elements.",
+        "Declare a structure array `sparse` of type `Element` containing row, col, and val fields.",
+        "Set index k = 1.",
+        "Traverse the matrix with nested loops (i from 0 to R-1, j from 0 to C-1):",
+        "  a. If matrix[i][j] != 0, set sparse[k].row = i, sparse[k].col = j, sparse[k].val = matrix[i][j], and increment k.",
+        "Set header row metadata: sparse[0].row = R, sparse[0].col = C, and sparse[0].val = k - 1 (total non-zero terms).",
+        "Print the sparse matrix array from index 0 to k - 1."
+    ],
+    output: "Enter matrix dimensions (rows cols): 3 3\nEnter matrix elements:\n0 0 5\n0 2 0\n4 0 0\n\nSparse Matrix Representation (Row, Col, Value):\n3\t3\t3\n0\t2\t5\n1\t1\t2\n2\t0\t4",
+    viva: [
+        { q: "What is a Sparse Matrix?", a: "A matrix in which the majority of the elements are zero." },
+        { q: "Why do we represent Sparse Matrices in 3-Tuple format?", a: "To conserve memory storage and reduce CPU processing time by only storing non-zero values along with their row and column coordinates." },
+        { q: "What does the first row (index 0) of a 3-tuple matrix store?", a: "The total number of rows, total number of columns, and total count of non-zero elements." }
+    ]
 }
 ];
 
