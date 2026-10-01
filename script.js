@@ -122,6 +122,23 @@ const topics = [
         { q: "What is the time complexity of Linear Search?", a: "Best Case: O(1) when key is at index 0. Worst and Average Case: O(n)." },
         { q: "When is Linear Search preferred over Binary Search?", a: "For small datasets or when the array is unsorted and sorting overhead is unnecessary." }
     ]
+},
+{
+    title: "Singly Linked List (Insertions)",
+    file: "programs/singly_linked_list.c",
+    aim: "To implement a Singly Linked List supporting insertion at the beginning, insertion at the end, and node traversal.",
+    algorithm: [
+        "Define a node structure containing data and a next pointer.",
+        "Insert Beginning(val): Allocate memory for new node N. Set N.data = val and N.next = HEAD. Update HEAD = N.",
+        "Insert End(val): Allocate memory for new node N. Set N.data = val and N.next = NULL. If HEAD == NULL, set HEAD = N. Else traverse to the last node P (where P.next == NULL) and set P.next = N.",
+        "Display(): Traverse from HEAD using next pointers, printing data until NULL is reached."
+    ],
+    output: "Inserted 20 at beginning.\nInserted 10 at beginning.\nInserted 30 at end.\nInserted 40 at end.\nSingly Linked List: 10 -> 20 -> 30 -> 40 -> NULL",
+    viva: [
+        { q: "What is a Singly Linked List?", a: "A linear data structure consisting of nodes where each node contains data and a pointer referencing the next node." },
+        { q: "What is the time complexity of inserting a node at the beginning vs at the end?", a: "Insertion at beginning: O(1). Insertion at end: O(n) without a tail pointer, or O(1) if a tail pointer is maintained." },
+        { q: "What happens if malloc fails during node creation?", a: "It returns NULL, indicating memory allocation overflow/failure." }
+    ]
 }
 ];
 
