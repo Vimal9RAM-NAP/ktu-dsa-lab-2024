@@ -8,6 +8,7 @@ deque
 linear_search
 singly_linked_list
 sparse_matrix
+insertion_sort
 *.out
 *.o
 *.exe
