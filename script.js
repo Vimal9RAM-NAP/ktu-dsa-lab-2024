@@ -225,6 +225,31 @@ const topics = [
         { q: "What is the time complexity of Merge Sort?", a: "O(n log n) across all cases (Best, Average, and Worst)." },
         { q: "What is the primary drawback of Merge Sort compared to Quick Sort or Insertion Sort?", a: "It requires O(n) auxiliary space for temporary arrays during the merge operation (not in-place)." }
     ]
+},
+{
+    title: "Stack Implementation using Array",
+    file: "programs/stack.c",
+    aim: "To implement a linear Stack data structure using an array and demonstrate Push, Pop, Peek, and Display operations.",
+    algorithm: [
+        "Initialize `top = -1` and define a fixed size array `stack[MAX]`.",
+        "Push(value):",
+        "  a. If top == MAX - 1, display 'Stack Overflow'.",
+        "  b. Else, increment top = top + 1 and set stack[top] = value.",
+        "Pop():",
+        "  a. If top == -1, display 'Stack Underflow'.",
+        "  b. Else, print stack[top] and decrement top = top - 1.",
+        "Peek():",
+        "  a. If top == -1, display 'Stack is empty'.",
+        "  b. Else, print stack[top].",
+        "Display():",
+        "  a. Traverse loop from i = top down to 0 and print stack[i]."
+    ],
+    output: "--- Stack Operations ---\n1. Push\n2. Pop\n3. Peek\n4. Display\n5. Exit\nEnter your choice: 1\nEnter value to push: 10\nPushed 10 into stack.\n\nEnter your choice: 1\nEnter value to push: 20\nPushed 20 into stack.\n\nEnter your choice: 4\nStack elements (top to bottom):\n20\n10",
+    viva: [
+        { q: "What principle does a Stack follow?", a: "LIFO (Last In, First Out) — the last element inserted is the first one to be removed." },
+        { q: "What is Stack Overflow and Stack Underflow?", a: "Overflow occurs when inserting into a completely full stack. Underflow occurs when deleting from an empty stack." },
+        { q: "What are the primary applications of a Stack?", a: "Function call stack (recursion tracking), expression evaluation/conversion (infix to postfix), undo-redo mechanisms, and backtracking algorithms." }
+    ]
 }
 ];
 
