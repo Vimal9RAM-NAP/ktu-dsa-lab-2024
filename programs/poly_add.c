@@ -43,7 +43,7 @@ int main() {
     while (i < n1) p3[k++] = p1[i++];
     while (j < n2) p3[k++] = p2[j++];
 
-    printf("\nResultant Polynomial: ");
+    printf("\nResultant Polynomial (After Addition): ");
     for (int x = 0; x < k; x++) {
         printf("%dx^%d", p3[x].coeff, p3[x].exp);
         if (x < k - 1) printf(" + ");
