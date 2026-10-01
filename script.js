@@ -159,6 +159,27 @@ const topics = [
         { q: "Why do we represent Sparse Matrices in 3-Tuple format?", a: "To conserve memory storage and reduce CPU processing time by only storing non-zero values along with their row and column coordinates." },
         { q: "What does the first row (index 0) of a 3-tuple matrix store?", a: "The total number of rows, total number of columns, and total count of non-zero elements." }
     ]
+},
+{
+    title: "Insertion Sort",
+    file: "programs/insertion_sort.c",
+    aim: "To sort an array of elements in ascending order using the Insertion Sort algorithm.",
+    algorithm: [
+        "Read array size N and N elements into array A.",
+        "Loop index i from 1 to N - 1:",
+        "  a. Set key = A[i] and j = i - 1.",
+        "  b. While j >= 0 and A[j] > key:",
+        "      i. Shift A[j] to A[j + 1].",
+        "      ii. Decrement j = j - 1.",
+        "  c. Insert key into its correct position: A[j + 1] = key.",
+        "Print the sorted array."
+    ],
+    output: "Enter number of elements: 5\nEnter 5 elements:\n12 11 13 5 6\nSorted array:\n5 6 11 12 13",
+    viva: [
+        { q: "How does Insertion Sort work conceptually?", a: "It builds the final sorted array one element at a time by picking the next element and inserting it into its correct position relative to the already sorted sub-array." },
+        { q: "What is the time complexity of Insertion Sort?", a: "Best Case: O(n) when the array is already sorted. Average and Worst Case: O(n^2)." },
+        { q: "Is Insertion Sort an in-place and stable sorting algorithm?", a: "Yes, it requires O(1) auxiliary space (in-place) and preserves the relative order of duplicate elements (stable)." }
+    ]
 }
 ];
 
