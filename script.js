@@ -180,6 +180,26 @@ const topics = [
         { q: "What is the time complexity of Insertion Sort?", a: "Best Case: O(n) when the array is already sorted. Average and Worst Case: O(n^2)." },
         { q: "Is Insertion Sort an in-place and stable sorting algorithm?", a: "Yes, it requires O(1) auxiliary space (in-place) and preserves the relative order of duplicate elements (stable)." }
     ]
+},
+{
+    title: "Bubble Sort",
+    file: "programs/bubble_sort.c",
+    aim: "To sort an array of elements in ascending order using the Bubble Sort algorithm.",
+    algorithm: [
+        "Read array size N and N elements into array A.",
+        "Loop pass index i from 0 to N - 2:",
+        "  a. Set swapped = 0.",
+        "  b. Loop comparison index j from 0 to N - i - 2:",
+        "      i. If A[j] > A[j + 1], swap A[j] and A[j + 1], and set swapped = 1.",
+        "  c. If swapped == 0, break early (array is already sorted).",
+        "Print the sorted array."
+    ],
+    output: "Enter number of elements: 5\nEnter 5 elements:\n64 34 25 12 22\nSorted array:\n12 22 25 34 64",
+    viva: [
+        { q: "How does Bubble Sort work?", a: "It repeatedly steps through the array, compares adjacent elements, and swaps them if they are in the wrong order until the entire array is sorted." },
+        { q: "What is the role of the `swapped` flag in optimized Bubble Sort?", a: "It enables early termination if no swaps occur during a full pass, improving the best-case time complexity to O(n)." },
+        { q: "What is the worst-case and best-case time complexity of Bubble Sort?", a: "Best Case (optimized): O(n). Worst and Average Case: O(n^2)." }
+    ]
 }
 ];
 
