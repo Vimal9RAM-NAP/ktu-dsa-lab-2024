@@ -250,6 +250,26 @@ const topics = [
         { q: "What is Stack Overflow and Stack Underflow?", a: "Overflow occurs when inserting into a completely full stack. Underflow occurs when deleting from an empty stack." },
         { q: "What are the primary applications of a Stack?", a: "Function call stack (recursion tracking), expression evaluation/conversion (infix to postfix), undo-redo mechanisms, and backtracking algorithms." }
     ]
+},
+{
+    title: "Infix to Postfix Conversion",
+    file: "programs/infix_to_postfix.c",
+    aim: "To convert a given infix expression into its equivalent postfix expression using a stack.",
+    algorithm: [
+        "Append ')' to the infix expression and push '(' onto the stack.",
+        "Scan the infix expression from left to right:",
+        "  a. If operand (letter or digit), append directly to the postfix expression.",
+        "  b. If left parenthesis '(', push it onto the stack.",
+        "  c. If operator (+, -, *, /, ^), pop operators with higher or equal precedence from the stack and append to postfix, then push current operator.",
+        "  d. If right parenthesis ')', pop operators from stack and append to postfix until a '(' is encountered (pop and discard '(').",
+        "Repeat until the expression is fully scanned and terminate postfix string with '\\0'."
+    ],
+    output: "Enter Infix expression: A+B*(C^D-E)\nPostfix Expression: ABCD^E-*+",
+    viva: [
+        { q: "Why is Postfix notation preferred over Infix notation in compiler design?", a: "Postfix notation removes the need for parentheses and explicit operator precedence rules, making expression evaluation simpler and more efficient using a single stack." },
+        { q: "What is operator precedence order used in conversion?", a: "Exponentiation (^) has the highest precedence (3), followed by Multiplication and Division (*, / with 2), and Addition and Subtraction (+, - with 1)." },
+        { q: "What is the time complexity of Infix to Postfix conversion?", a: "O(n), where n is the length of the infix expression, as each character is processed and pushed/popped a constant number of times." }
+    ]
 }
 ];
 
