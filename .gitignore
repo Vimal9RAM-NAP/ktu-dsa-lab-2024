@@ -12,6 +12,7 @@ insertion_sort
 bubble_sort
 merge_sort
 stack
+infix_to_postfix
 *.out
 *.o
 *.exe
