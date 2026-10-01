@@ -200,6 +200,31 @@ const topics = [
         { q: "What is the role of the `swapped` flag in optimized Bubble Sort?", a: "It enables early termination if no swaps occur during a full pass, improving the best-case time complexity to O(n)." },
         { q: "What is the worst-case and best-case time complexity of Bubble Sort?", a: "Best Case (optimized): O(n). Worst and Average Case: O(n^2)." }
     ]
+},
+{
+    title: "Merge Sort",
+    file: "programs/merge_sort.c",
+    aim: "To sort an array of elements using the divide-and-conquer strategy of the Merge Sort algorithm.",
+    algorithm: [
+        "Read array size N and N elements into array A.",
+        "mergeSort(low, high):",
+        "  a. If low < high:",
+        "      i. Find mid = low + (high - low) / 2.",
+        "      ii. Recursively call mergeSort(low, mid).",
+        "      iii. Recursively call mergeSort(mid + 1, high).",
+        "      iv. Call merge(low, mid, high) to merge the two sorted halves.",
+        "merge(low, mid, high):",
+        "  a. Copy elements into temporary left and right sub-arrays.",
+        "  b. Compare and copy smaller elements back into the main array until one sub-array is empty.",
+        "  c. Copy remaining elements from non-empty sub-array.",
+        "Print the sorted array."
+    ],
+    output: "Enter number of elements: 6\nEnter 6 elements:\n38 27 43 3 9 82\nSorted array:\n3 9 27 38 43 82",
+    viva: [
+        { q: "What algorithmic technique does Merge Sort use?", a: "Divide and Conquer: it recursively splits the array into halves until single elements remain, then merges them in sorted order." },
+        { q: "What is the time complexity of Merge Sort?", a: "O(n log n) across all cases (Best, Average, and Worst)." },
+        { q: "What is the primary drawback of Merge Sort compared to Quick Sort or Insertion Sort?", a: "It requires O(n) auxiliary space for temporary arrays during the merge operation (not in-place)." }
+    ]
 }
 ];
 
