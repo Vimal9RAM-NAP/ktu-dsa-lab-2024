@@ -270,6 +270,32 @@ const topics = [
         { q: "What is operator precedence order used in conversion?", a: "Exponentiation (^) has the highest precedence (3), followed by Multiplication and Division (*, / with 2), and Addition and Subtraction (+, - with 1)." },
         { q: "What is the time complexity of Infix to Postfix conversion?", a: "O(n), where n is the length of the infix expression, as each character is processed and pushed/popped a constant number of times." }
     ]
+},
+{
+    title: "Quick Sort",
+    file: "programs/quick_sort.c",
+    aim: "To sort an array of elements in ascending order using the divide-and-conquer strategy of the Quick Sort algorithm.",
+    algorithm: [
+        "Read array size N and N elements into array A.",
+        "quickSort(low, high):",
+        "  a. If low < high:",
+        "      i. Find partitioning index `pi` = partition(low, high).",
+        "      ii. Recursively call quickSort(low, pi - 1).",
+        "      iii. Recursively call quickSort(pi + 1, high).",
+        "partition(low, high):",
+        "  a. Select pivot = A[high] and set i = low - 1.",
+        "  b. Traverse loop j from low to high - 1:",
+        "      i. If A[j] <= pivot, increment i and swap A[i] with A[j].",
+        "  c. Swap A[i + 1] with pivot (A[high]).",
+        "  d. Return partitioning index (i + 1).",
+        "Print the sorted array."
+    ],
+    output: "Enter number of elements: 6\nEnter 6 elements:\n10 7 8 9 1 5\nSorted array:\n1 5 7 8 9 10",
+    viva: [
+        { q: "What design paradigm does Quick Sort use?", a: "Divide and Conquer: it selects a pivot element, partitions the array around the pivot, and recursively sorts the sub-arrays." },
+        { q: "What are the time complexities of Quick Sort?", a: "Best & Average Case: O(n log n). Worst Case: O(n^2) (occurs when the array is already sorted or reverse sorted and the pivot is poorly chosen)." },
+        { q: "Is Quick Sort an in-place algorithm?", a: "Yes, it sorts elements without allocating extra arrays, requiring only O(log n) auxiliary space for the recursive call stack." }
+    ]
 }
 ];
 
