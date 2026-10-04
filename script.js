@@ -296,6 +296,30 @@ const topics = [
         { q: "What are the time complexities of Quick Sort?", a: "Best & Average Case: O(n log n). Worst Case: O(n^2) (occurs when the array is already sorted or reverse sorted and the pivot is poorly chosen)." },
         { q: "Is Quick Sort an in-place algorithm?", a: "Yes, it sorts elements without allocating extra arrays, requiring only O(log n) auxiliary space for the recursive call stack." }
     ]
+},
+{
+    title: "Heap Sort",
+    file: "programs/heap_sort.c",
+    aim: "To sort an array of elements in ascending order using the Max-Heap data structure.",
+    algorithm: [
+        "Read array size N and N elements into array A.",
+        "Build a Max-Heap from the input data: loop i from (N/2 - 1) down to 0 and call heapify(A, N, i).",
+        "heapify(A, size, i):",
+        "  a. Set largest = i, left = 2*i + 1, right = 2*i + 2.",
+        "  b. If left < size and A[left] > A[largest], set largest = left.",
+        "  c. If right < size and A[right] > A[largest], set largest = right.",
+        "  d. If largest != i, swap A[i] with A[largest] and call heapify(A, size, largest).",
+        "Extract elements one by one: loop i from N - 1 down to 1:",
+        "  a. Swap root A[0] with A[i].",
+        "  b. Call heapify(A, i, 0) to maintain max-heap property on reduced array.",
+        "Print the sorted array."
+    ],
+    output: "Enter number of elements: 6\nEnter 6 elements:\n12 11 13 5 6 7\nSorted array:\n5 6 7 11 12 13",
+    viva: [
+        { q: "What is a Max-Heap?", a: "A complete binary tree where the value of each node is greater than or equal to the values of its children, with the maximum element at the root." },
+        { q: "What is the time complexity of Heap Sort?", a: "O(n log n) in all cases (Best, Average, and Worst)." },
+        { q: "Is Heap Sort stable and in-place?", a: "It is an in-place sorting algorithm (O(1) auxiliary space), but it is NOT stable because equal elements may be rearranged during heap operations." }
+    ]
 }
 ];
 
