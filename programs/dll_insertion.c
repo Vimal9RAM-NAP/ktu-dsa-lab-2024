@@ -43,6 +43,39 @@ void insertEnd(int val) {
     printf("Inserted %d at end.\n", val);
 }
 
+void deleteNode(int val) {
+    if (head == NULL) {
+        printf("List is empty. Cannot delete.\n");
+        return;
+    }
+
+    struct Node* temp = head;
+
+    while (temp != NULL && temp->data != val) {
+        temp = temp->next;
+    }
+
+    if (temp == NULL) {
+        printf("Value %d not found in the list.\n", val);
+        return;
+    }
+
+    if (head == temp) {
+        head = temp->next;
+    }
+
+    if (temp->next != NULL) {
+        temp->next->prev = temp->prev;
+    }
+
+    if (temp->prev != NULL) {
+        temp->prev->next = temp->next;
+    }
+
+    free(temp);
+    printf("Deleted %d from the list.\n", val);
+}
+
 void display() {
     struct Node* temp = head;
     if (temp == NULL) {
@@ -62,6 +95,13 @@ int main() {
     insertBeginning(10);
     insertEnd(30);
     insertEnd(40);
+
     display();
+
+    deleteNode(10);
+    deleteNode(30);
+
+    display();
+
     return 0;
 }
