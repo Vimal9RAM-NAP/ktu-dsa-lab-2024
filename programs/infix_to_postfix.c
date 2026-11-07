@@ -1,28 +1,27 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-
 #define MAX 100
-
 char stack[MAX];
 int top = -1;
-
-void push(char item) {
-    if (top >= MAX - 1) {
-        printf("Stack Overflow\n");
+void push(char value) {
+    if (top == MAX - 1) {
+        printf("Stack Overflow! Cannot push %c\n", value);
     } else {
-        stack[++top] = item;
+        top++;
+        stack[top] = value;
     }
 }
-
 char pop() {
     if (top == -1) {
+        printf("Stack Underflow! Stack is empty.\n");
         return -1;
     } else {
-        return stack[top--];
+        char value = stack[top];
+        top--;
+        return value;
     }
 }
-
 int precedence(char symbol) {
     if (symbol == '^') {
         return 3;
@@ -34,16 +33,12 @@ int precedence(char symbol) {
         return 0;
     }
 }
-
 void infixToPostfix(char infix[], char postfix[]) {
     int i = 0, j = 0;
     char item, x;
-
     push('(');
     strcat(infix, ")");
-
     item = infix[i];
-
     while (item != '\0') {
         if (item == '(') {
             push(item);
@@ -67,19 +62,13 @@ void infixToPostfix(char infix[], char postfix[]) {
         i++;
         item = infix[i];
     }
-
     postfix[j] = '\0';
 }
-
 int main() {
     char infix[MAX], postfix[MAX];
-
     printf("Enter Infix expression: ");
     scanf("%s", infix);
-
     infixToPostfix(infix, postfix);
-
     printf("Postfix Expression: %s\n", postfix);
-
     return 0;
 }
