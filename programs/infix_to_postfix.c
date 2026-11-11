@@ -1,74 +1,62 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <string.h>
-#define MAX 100
-char stack[MAX];
+
+char stack[100];
 int top = -1;
-void push(char value) {
-    if (top == MAX - 1) {
-        printf("Stack Overflow! Cannot push %c\n", value);
-    } else {
-        top++;
-        stack[top] = value;
-    }
+
+void push(char x) {
+    stack[++top] = x;
 }
+
 char pop() {
-    if (top == -1) {
-        printf("Stack Underflow! Stack is empty.\n");
-        return -1;
-    } else {
-        char value = stack[top];
-        top--;
-        return value;
-    }
+    return stack[top--];
 }
-int precedence(char symbol) {
-    if (symbol == '^') {
+
+int priority(char x) {
+    if (x == '^')
         return 3;
-    } else if (symbol == '*' || symbol == '/') {
+    if (x == '*' || x == '/')
         return 2;
-    } else if (symbol == '+' || symbol == '-') {
+    if (x == '+' || x == '-')
         return 1;
-    } else {
-        return 0;
-    }
+    return 0;
 }
-void infixToPostfix(char infix[], char postfix[]) {
-    int i = 0, j = 0;
-    char item, x;
-    push('(');
-    strcat(infix, ")");
-    item = infix[i];
-    while (item != '\0') {
-        if (item == '(') {
-            push(item);
-        } else if (isalnum(item)) {
-            postfix[j++] = item;
-        } else if (item == '+' || item == '-' || item == '*' || item == '/' || item == '^') {
-            x = pop();
-            while (precedence(x) >= precedence(item)) {
-                postfix[j++] = x;
-                x = pop();
-            }
-            push(x);
-            push(item);
-        } else if (item == ')') {
-            x = pop();
-            while (x != '(') {
-                postfix[j++] = x;
-                x = pop();
-            }
-        }
-        i++;
-        item = infix[i];
-    }
-    postfix[j] = '\0';
-}
+
 int main() {
-    char infix[MAX], postfix[MAX];
-    printf("Enter Infix expression: ");
+    char infix[100], postfix[100], x;
+    int i, j = 0;
+
+    printf("Enter infix: ");
     scanf("%s", infix);
-    infixToPostfix(infix, postfix);
-    printf("Postfix Expression: %s\n", postfix);
+
+    for (i = 0; infix[i] != '\0'; i++) {
+        x = infix[i];
+
+        if (isalnum(x))
+            postfix[j++] = x;
+
+        else if (x == '(')
+            push(x);
+
+        else if (x == ')') {
+            while (stack[top] != '(')
+                postfix[j++] = pop();
+            pop();
+        }
+
+        else {
+            while (top != -1 && priority(stack[top]) >= priority(x))
+                postfix[j++] = pop();
+            push(x);
+        }
+    }
+
+    while (top != -1)
+        postfix[j++] = pop();
+
+    postfix[j] = '\0';
+
+    printf("Postfix: %s", postfix);
+
     return 0;
 }
