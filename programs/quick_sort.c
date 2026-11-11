@@ -1,60 +1,48 @@
 #include <stdio.h>
 
-void swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+void quickSort(int a[], int low, int high) {
+    int i, j, pivot, temp;
 
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high]; // Choosing the last element as pivot
-    int i = (low - 1);     // Index of smaller element
+    if(low < high) {
+        pivot = a[high];
+        i = low - 1;
 
-    for (int j = low; j < high; j++) {
-        // If current element is smaller than or equal to pivot
-        if (arr[j] <= pivot) {
-            i++;
-            swap(&arr[i], &arr[j]);
+        for(j = low; j < high; j++) {
+            if(a[j] < pivot) {
+                i++;
+
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
         }
-    }
-    swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
-}
 
-void quickSort(int arr[], int low, int high) {
-    if (low < high) {
-        // pi is partitioning index, arr[pi] is now at right place
-        int pi = partition(arr, low, high);
+        temp = a[i + 1];
+        a[i + 1] = a[high];
+        a[high] = temp;
 
-        // Recursively sort elements before and after partition
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
-    }
-}
+        int p = i + 1;
 
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+        quickSort(a, low, p - 1);
+        quickSort(a, p + 1, high);
     }
-    printf("\n");
 }
 
 int main() {
-    int n;
+    int a[100], n, i;
 
-    printf("Enter number of elements: ");
+    printf("Enter size: ");
     scanf("%d", &n);
 
-    int arr[n];
-    printf("Enter %d elements:\n", n);
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-    }
+    printf("Enter elements: ");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
 
-    quickSort(arr, 0, n - 1);
+    quickSort(a, 0, n - 1);
 
-    printf("Sorted array:\n");
-    printArray(arr, n);
+    printf("Sorted array: ");
+    for(i = 0; i < n; i++)
+        printf("%d ", a[i]);
 
     return 0;
 }
