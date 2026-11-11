@@ -1,72 +1,56 @@
 #include <stdio.h>
 
-void swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+void heapify(int a[], int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+    int temp;
 
-// To heapify a subtree rooted with node i which is an index in arr[]. n is size of heap
-void heapify(int arr[], int n, int i) {
-    int largest = i;       // Initialize largest as root
-    int left = 2 * i + 1;  // left = 2*i + 1
-    int right = 2 * i + 2; // right = 2*i + 2
-
-    // If left child is larger than root
-    if (left < n && arr[left] > arr[largest])
+    if(left < n && a[left] > a[largest])
         largest = left;
 
-    // If right child is larger than largest so far
-    if (right < n && arr[right] > arr[largest])
+    if(right < n && a[right] > a[largest])
         largest = right;
 
-    // If largest is not root
-    if (largest != i) {
-        swap(&arr[i], &arr[largest]);
+    if(largest != i) {
+        temp = a[i];
+        a[i] = a[largest];
+        a[largest] = temp;
 
-        // Recursively heapify the affected sub-tree
-        heapify(arr, n, largest);
+        heapify(a, n, largest);
     }
 }
 
-void heapSort(int arr[], int n) {
-    // Build max heap (rearrange array)
-    for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(arr, n, i);
+void heapSort(int a[], int n) {
+    int i, temp;
 
-    // One by one extract an element from heap
-    for (int i = n - 1; i > 0; i--) {
-        // Move current root to end
-        swap(&arr[0], &arr[i]);
+    for(i = n / 2 - 1; i >= 0; i--)
+        heapify(a, n, i);
 
-        // Call max heapify on the reduced heap
-        heapify(arr, i, 0);
+    for(i = n - 1; i > 0; i--) {
+        temp = a[0];
+        a[0] = a[i];
+        a[i] = temp;
+
+        heapify(a, i, 0);
     }
-}
-
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
 }
 
 int main() {
-    int n;
+    int a[100], n, i;
 
-    printf("Enter number of elements: ");
+    printf("Enter size: ");
     scanf("%d", &n);
 
-    int arr[n];
-    printf("Enter %d elements:\n", n);
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-    }
+    printf("Enter elements: ");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
 
-    heapSort(arr, n);
+    heapSort(a, n);
 
-    printf("Sorted array:\n");
-    printArray(arr, n);
+    printf("Sorted array: ");
+    for(i = 0; i < n; i++)
+        printf("%d ", a[i]);
 
     return 0;
 }
